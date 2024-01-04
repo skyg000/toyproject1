@@ -42,6 +42,7 @@ function play(){
 
     chances --;
     chancesArea.textContent = `남은횟수 : ${chances} 회`;
+    history.push(userValue)
 
     if(userValue < randomNum){
         resultAreaImg.src = "/img/up.gif"
@@ -55,7 +56,6 @@ function play(){
         result.textContent = "맞췄으니까 마셔!!!!"
         gameOver=true
     }
-    history.push(userValue)
 
     if(chances < 1){
         gameOver = true

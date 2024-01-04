@@ -1,5 +1,6 @@
 body{
     background-size: cover;
+    margin: 0;
     height: 100vh;
     width: 100%;
     background-image: url(./img/background.jpg);
@@ -7,19 +8,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: "East Sea Dokdo", cursive;
 }
 .container{
     text-align: center;
     background-color: rgba(247, 243, 242, 0.7);
     border-radius: 40px;
     border: 10px solid white;
-    padding: 40px;
+    padding: 10px;
+    width: 50%;
 }
 .title{
     color:black;
+    font-size: 80px;
+    margin: 0;
 }
 .subtitle{
-
+    font-size: 50px;
 }
 .redtxt{
     color: red;
@@ -27,36 +32,45 @@ body{
 .result{
 
 }
+.main-img{
+    width: 70%;
+    height: 400px
+}
 .resulttxt{
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 40px;
     color: red;
+    margin: 10px 0;
 }
 .inputinfo{
     margin-bottom: 20px;
 }
 .chances-area{
-    font-size: 20px;
+    font-size: 40px;
     margin-bottom: 10px;
 }
 .userinput{
-    padding: 10px;
     width: 45%;
+    text-align: center;
     border-radius: 10px;
     border: none;
-    margin: 0 10px 0 60px;
+    margin-right: 10px;
+    font-size: 30px;
+    font-family: "East Sea Dokdo", cursive;
 }
 .play-button{
     background-color: blue;
     border-radius: 10px;
     color: white;
-    padding: 10px;
+    font-size: 30px;
+    border: none;
+    font-family: "East Sea Dokdo", cursive;
+    margin-right: 20px;
 }
 .reset-button{
     background-color: rgb(248, 168, 7);
     border-radius: 10px;
     color: black;
-    padding: 10px 100px;
     border: none;
-    font-size: 15px;
+    font-size: 30px;
+    font-family: "East Sea Dokdo", cursive;
 }
