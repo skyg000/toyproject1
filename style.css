@@ -1,0 +1,62 @@
+body{
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-image: url(./img/background.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    text-align: center;
+    background-color: rgba(247, 243, 242, 0.7);
+    border-radius: 40px;
+    border: 10px solid white;
+    padding: 40px;
+}
+.title{
+    color:black;
+}
+.subtitle{
+
+}
+.redtxt{
+    color: red;
+}
+.result{
+
+}
+.resulttxt{
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
+.inputinfo{
+    margin-bottom: 20px;
+}
+.chances-area{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.userinput{
+    padding: 10px;
+    width: 45%;
+    border-radius: 10px;
+    border: none;
+    margin: 0 10px 0 60px;
+}
+.play-button{
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+.reset-button{
+    background-color: rgb(248, 168, 7);
+    border-radius: 10px;
+    color: black;
+    padding: 10px 100px;
+    border: none;
+    font-size: 15px;
+}
