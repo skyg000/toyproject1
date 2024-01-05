@@ -65,6 +65,7 @@ body{
     border: none;
     font-family: "East Sea Dokdo", cursive;
     margin-right: 20px;
+    padding: 0 10px;
 }
 .reset-button{
     background-color: rgb(248, 168, 7);
@@ -73,4 +74,56 @@ body{
     border: none;
     font-size: 30px;
     font-family: "East Sea Dokdo", cursive;
+}
+@media screen and (max-width: 480px){ 
+    body{
+        background-position: center; 
+        background-size: contain;
+    }
+    .container{
+        width: 85%;
+    }
+    .title{
+        color:black;
+        font-size: 80px;
+        margin: 0;
+    }
+    .subtitle{
+        font-size: 50px;
+        margin: 0;
+    }
+    .redtxt{
+        color: red;
+        display: flex;
+        flex-direction: column;
+    }
+    .result{
+    
+    }
+    .main-img{
+        width: 70%;
+        height: 400px
+    }
+    .resulttxt{
+        font-size: 35px;
+        color: rgb(7, 7, 7);
+        margin: 10px 0;
+    }
+    .inputinfo{
+        margin-bottom: 20px;
+    }
+    .chances-area{
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+    .userinput{
+        padding: 8px;
+        font-size: 20px;
+    }
+    .play-button{
+        padding: 0 10px;
+    }
+    .reset-button{
+        
+    }
 }

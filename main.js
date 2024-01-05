@@ -1,74 +1,74 @@
-//랜덤번호 지정
-//유저가 번호를 이력하고 go버튼 누름
-//유저가 번호맞추면 메세지출력
-//랜덤번호 < 유저번호 Down
-//랜덤번호 > 유저번호 Up
-//Rest버튼 누르면 게임 리셋
-//5번의기회를 다쓰면 게임끝 (버튼 비화성화)
-//유저가 1~100범위 입력시 메세지출력 기회차감 X
-//유저가 이미 입력한걸 또 입력하면 메세지 출력 기회차감 X
-
-let randomNum = 0;
-let playButton = document.getElementById("play-button")
-let userInput = document.getElementById("userinput")
-let resultArea = document.getElementById("result")
-let resetButton = document.getElementById("reset-button")
+// 필요한 html elements 다 가져오기
+let computerNumber = 0;
+let playButton = document.getElementById("play-button");
+let resetButton = document.querySelector(".reset-button");
+let userInput = document.querySelector("#userinput");
 let resultAreaImg = document.querySelector(".main-img");
-let chances = 5
-let gameOver = false
+let resultArea = document.querySelector(".resulttxt")
 let chancesArea = document.getElementById("chances-area")
-let history=[]
+let gameOver = false;
+let chances = 5; // 남은 기회
+let userValueList = []; // 유저가 입력한 숫자들 리스트
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
-userInput.addEventListener("focus",focusInput)
+userInput.addEventListener("focus", focusInput);
 
-function pickNum(){
-    randomNum = Math.floor(Math.random()*100)+1; //1~100까지이기때문에 +1 입력
-    console.log("정답은",randomNum);
+function pickNum() {
+    // 랜덤숫자 뽑기
+
+    computerNumber = Math.floor(Math.random() * 100) + 1;
+    console.log("정답", computerNumber);
 }
 
-function play(){
-    let userValue = userInput.value;
-    if(userValue < 1 || userValue > 100){
-        resultArea.textContent = "1과100사이에 숫자를 입력해주세요"
+function play() {
+    // 숫자 추측하기
+    const userValue = userInput.value;
+    if (userValue < 1 || userValue > 100) {
+        resultText.textContent = "1부터 100 사이의 숫자를 입력 해주세요";
+
         return;
     }
 
-    if(history.includes(userValue)){
+    if (userValueList.includes(userValue)) {
+        resultAreaImg.src = "https://media3.giphy.com/media/xlqFxnsFeyuu2pDp4j/giphy.gif?cid=ecf05e47l7w1j7dul42xbvb88ntif4khtvy8r0nhaaen9295&ep=v1_gifs_search&rid=giphy.gif&ct=g"
         resultArea.textContent="취했냐!! 했던 숫자잖아!!"
+
         return;
     }
 
-    chances --;
-    chancesArea.textContent = `남은횟수 : ${chances} 회`;
-    history.push(userValue)
-
-    if(userValue < randomNum){
-        resultAreaImg.src = "/img/up.gif"
-        result.textContent = "UP!!!"
-        console.log("Image Source: ", resultAreaImg.src);
-    }else if(userValue > randomNum){
-        resultAreaImg.src = "./img/down.gif"
-        result.textContent = "DOWN!!!"
-    }else{
-        resultAreaImg.src = "./img/mainimg.png"
-        result.textContent = "맞췄으니까 마셔!!!!"
-        gameOver=true
+    chances--;
+    chancesArea.textContent = `남은 기회:${chances}`;
+    userValueList.push(userValue);
+    if (userValue < computerNumber) {
+        resultAreaImg.src =
+            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3NvamMxdW91M21nOHFoZXFuN3Y4c2VzenlienBmNHNzZGh6OGRzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b3z9tWI6hZSY0ydy0g/giphy.gif";
+            resultArea.textContent = "UP!!!"
+    } else if (userValue > computerNumber) {
+        resultAreaImg.src = "https://media4.giphy.com/media/nkP3Ug9p95Qquy6WTM/giphy.gif?cid=ecf05e478rodf0uqqpic8sy5zn8xgthvbb9qcy36gffd9fo8&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+        resultArea.textContent = "DOWN!!!"
+    } else {
+        resultAreaImg.src =
+            "https://media0.giphy.com/media/fqVUYfHCELMgMpA4fo/giphy.gif?cid=ecf05e47jfjux0y2wcpd8rviu8lmrvvyq8my1e3neauckpdq&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+            resultArea.textContent = "맞췄으니까 마셔!!!!"
+        gameOver = true;
     }
 
-    if(chances < 1){
-        gameOver = true
+    if (chances == 0) {
+        gameOver = true;
     }
-    if(gameOver == true){
-        playButton.disabled= true;
+
+    if (gameOver == true) {
+        playButton.disabled = true;
     }
 }
-function focusInput(){
-    userInput.value=""
+
+function focusInput() {
+    userInput.value = "";
 }
-function reset(){
-    //userinput창 정리
+
+function reset() {
+    //리셋
     pickNum()
     userInput.value = ""
     resultAreaImg.src = "./img/mainimg.png"
@@ -79,4 +79,5 @@ function reset(){
     chancesArea.innerHTML = `남은 기회:${chances}`;
     userValueList = [];
 }
-pickNum()
+
+pickNum();
